@@ -1,0 +1,91 @@
+{
+  "Welcome": "Welcome",
+  "Offline-message":"No internet connection",
+  "Delete-Photo":"Delete photo",
+  "Fields": {
+    "Email": "E-mail",
+    "Password": "Password"
+  },
+  "Validation": {
+    "Required": "This field is required",
+    "Email": "Invalid email address",
+    "Min-Length": "this field length must be at least {{length}} characters long",
+    "Max-Length": "this field length must be less than or equal to {{length}} characters long",
+    "Password-Match": "Repeated Password doesn’t match the new password",
+    "UniqueEmail": "The email has already been taken",
+    "Max-LengthWithMin": "Password length must be from {{minLength}} to {{length}} characters",
+    "Min-LengthWithMix": "Password length must be from {{length}} to {{maxLength}} characters",
+    "Pattern":"Invalid format url ",
+    "LessThanDate":"End date should be greater or equal to start date",
+    "NoString":"Please enter numbers only ",
+    "TextOnly":"Please enter characters only",
+    "InvalidUrl":"Invalid format url "
+  },
+  "Auth": {
+    "Login": {},
+    "changePassword": {
+      "title": "Change Password"
+    },
+    "Settings": {
+      "Title": "Connect to Your Facebook Account ,",
+      "Facebook": "FACEBOOK",
+      "Connect": "Connect",
+      "Disconnect": "Disconnect"
+    },
+    "Nav":{
+      "Packages":"Packages",
+      "Users":"Users",
+      "Settings":"Settings"
+    }
+  },
+  "Packages": {
+    "Card": {
+      "Total-Audiences": "Total Audiences",
+      "Total-Packages": "Total Packages",
+      "Total-Campaigns": "Total Campaigns"
+    },
+    "List": {
+      "PackageId": "Package ID",
+      "ArtistName":"Artist Name",
+      "CreationDate":"Creation Date",
+      "CreatorName":"Creator Name",
+      "FBPageID":"FB Page ID",
+      "ArtistId":"Artist ID"
+    },
+    "Add":{
+      "Title":"Add New Package",
+      "ArtistName":"Artist Name",
+      "ArtistID":"Artist ID",
+      "Artist-FBM":"Artist’s FB Business Manger ID",
+      "Artist-FBP":"Artist’s FB page ID",
+      "Artist-IGB":"Artist’s IG Business Account ID",
+      "Artist-FBA":"Artist’s FB Ad Account ID",
+      "Artist-FB-Pixel":"Artist’s FB Pixel ID",
+      "Official-WD":"Official website domain URL",
+      "Web-USL":"Web URL segment for listers",
+      "Web-USF":"Web URL segment for followers",
+      "Global-Budget":"Global Budget to be spent",
+      "ActionCall":"Ad’s call to Action",
+      "Campaigns-StartDate":"Campaigns Start date",
+      "Campaigns-EndDate":"Campaigns End date",
+      "Headline-French":"Ad’s Headline  in French",
+      "Body-French":"Ad’s Text body in French",
+      "Headline-English":"Ad’s Headline  in English",
+      "Body-English":"Ad’s Text body in English",
+      "Headline-Spanish":"Ad’s Headline  in Spanish",
+      "Body-Spanish":"Ad’s Text body in Spanish",
+      "Headline-Portuguese":"Ad’s Headline  in Portuguese",
+      "Body-Portuguese":"Ad’s Text body in Portuguese",
+      "Facebook-Url":"Facebook video Id or URL",
+      "Listeners-Landing":"Listeners Landing page web URL",
+      "Followers-Landing":"Followers Landing page web URL",
+      "YouTube-Channel":"YouTube Channel URL",
+      "Instagram-Account":"Page not connect to IG account",
+      "location":"Prior Territories"
+
+
+
+
+    }
+  }
+}
