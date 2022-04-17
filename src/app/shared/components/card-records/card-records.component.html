@@ -1,0 +1,93 @@
+<div class="card-wrapper mt-3" *ngFor="let item of records">
+  <mat-card class="example-card mb-5">
+    <mat-card-header class="!w-full">
+      <mat-card-title class="!w-full !flex">
+       <div class="!w-1/2">{{item?.title}}</div>
+        <div class="!w-full flex justify-end">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon class="nav-menu">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="handleAction($event)">Add</button>
+            <button mat-menu-item (click)="handleAction($event)">Edit</button>
+            <button mat-menu-item (click)="handleAction($event)">Delete</button>
+          </mat-menu>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle
+        class="!flex justify-start items-center content-center"
+      >
+        <div
+          class="!flex justify-start items-center content-center h-8 bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900"
+        >
+          <span class="text-gray-500 text-xs font-semibold mr-2 px-.5 py-0.5"
+            >Record Status :</span
+          >{{item?.recordStatus}}
+        </div>
+        <div
+          class="!flex justify-start items-center content-center h-8 bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900"
+        >
+          <span class="text-gray-500 text-xs font-semibold mr-2 px-.5 py-0.5"
+            >Record Type:</span
+          >{{item?.recordType}}
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile
+          *ngFor="let tile of tiles"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows"
+          [style.background]="tile.color"
+        >
+          {{ tile.text }}
+        </mat-grid-tile>
+      </mat-grid-list> -->
+      <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+          <label
+            class="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-city"
+          >
+            Business entity type
+          </label>
+          <span>{{item?.businessType}}</span>
+        </div>
+        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+          <label
+            class="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-state"
+          >
+            Expiry date
+          </label>
+          <span>{{item?.expiryDate|date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+          <label
+            class="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-zip"
+          >
+            Identify number
+          </label>
+          <span>{{item?.identifyNumber}}</span>
+        </div>
+        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+          <label
+            class="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-zip"
+          >
+            Commercial Registration No
+          </label>
+          <span>{{item?.registrationNo}}</span>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="Show($event)">
+        Show Records
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

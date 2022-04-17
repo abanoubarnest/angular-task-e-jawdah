@@ -1,0 +1,36 @@
+<div class="">
+    <h1 mat-dialog-title >{{data?.title}}</h1>
+    <form novalidate #categoryForm="ngForm">
+    <div mat-dialog-content>
+        <!-- appearance="outline" -->
+        <div class="row">
+            <mat-form-field class="!block !mb-4 col-6">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput name="name" #name="ngModel" [(ngModel)]="categoryModel.name" required />
+                <mat-error *ngIf="name?.errors?.['required']">
+                  Name is Required
+                </mat-error>
+            
+                
+              </mat-form-field >
+              <ng-container *ngIf="data['item']">
+                <mat-form-field class="!block !mb-4 col-6">
+                    <mat-label>Count Of Books</mat-label>
+                    <input type="number" matInput name="countOfBooks" #countOfBooks="ngModel" [(ngModel)]="categoryModel.countOfBooks" disabled />        
+                  </mat-form-field >
+            </ng-container>
+             
+        </div>
+     
+              
+            </div>
+            <div mat-dialog-actions>
+                <button  [disabled]="categoryForm?.invalid" type="button" mat-raised-button color="primary" (click)="save()" class="mx-4 px-4">
+                    Save
+                  </button>
+                  <button type="button" mat-raised-button color="accent" class="px-4" (click)="onNoClick()">cancel
+                  </button>
+                
+            </div>
+        </form>
+</div>

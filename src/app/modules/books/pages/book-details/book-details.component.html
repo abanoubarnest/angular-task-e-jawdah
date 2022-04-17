@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row" *ngIf="data?.name">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="email">Name: {{data?.name}}</label>
+
+      </div>
+      <div class="form-group">
+        <label for="pwd">Price: {{data?.price}}</label>
+
+      </div>
+      <div class="form-group">
+        <label> Stock: {{data?.stock}} </label>
+      </div>
+
+    </form>
+  
+  </div>
+  <div class="row"  *ngIf="!data?.name">
+    No Data 
+</div>
+</div>

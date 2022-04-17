@@ -1,0 +1,14 @@
+mat-list {
+    width: 200px;
+
+    a {
+      height: 50px;
+
+      &.active {
+        background: #673ab7;
+        color: white;
+      }
+    }
+  }
+
+

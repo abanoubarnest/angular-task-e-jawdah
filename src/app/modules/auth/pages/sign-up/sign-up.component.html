@@ -1,0 +1,86 @@
+<div class="user-container  w-full">
+
+  <h2 class="text-2xl mb-6 font-bold">{{title}}</h2>
+
+  <form [formGroup]="userForm">
+    <!-- Email -->
+    <!-- New Password -->
+    <div class="grid grid-cols-2 gap-4">
+
+
+      <mat-form-field class="!block">
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput formControlName="firstName" />
+        <mat-error *ngIf="firstName?.errors">
+            First name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="!block">
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput formControlName="lastName" />
+      </mat-form-field>
+
+
+      <!-- New Password confirmation -->
+
+      <mat-form-field class="!block">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [type]="!newPasswordToggle ? 'password' : 'text'" />
+        <button type="button" mat-icon-button matSuffix (click)="newPasswordToggle = !newPasswordToggle"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="newPasswordToggle">
+          <mat-icon>{{ newPasswordToggle ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+     
+            <mat-error *ngIf="password?.errors?.['pattern']">
+                Password, at least one uppercase letter, one lowercase letter, special letter and one number
+            </mat-error>
+            <mat-error *ngIf="password?.errors?.['required']">
+               Password is required
+            </mat-error>
+            <mat-error *ngIf="password?.errors?.['minlength']">
+                Password must be at least 8 characters
+             </mat-error>
+       
+     
+      </mat-form-field>
+      <mat-form-field class="!block">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="password_confirmation"
+          [type]="!newPasswordConfirmToggle ? 'password' : 'text'" />
+        <button type="button" mat-icon-button matSuffix (click)="newPasswordConfirmToggle = !newPasswordConfirmToggle"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="newPasswordConfirmToggle">
+          <mat-icon>{{ newPasswordConfirmToggle ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+                    <mat-error *ngIf="password_confirmation?.errors?.['required']">
+               Confirm password is required
+            </mat-error>
+            <mat-error *ngIf="password_confirmation?.errors?.['minlength']">
+                Confirm password must be at least 8 characters
+             </mat-error>  
+              <mat-error *ngIf="password_confirmation?.errors?.['mustMatch']">
+                Repeated Password doesn’t match the new password
+             </mat-error>
+      
+      </mat-form-field>
+      <!-- Email -->
+      <mat-form-field class="!block">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['pattern']">
+            Invalid email format
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['required']">
+            Email is Required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <!-- Actions -->
+    <div class="flex justify-start">
+      <button type="button" class="!mx-2" mat-raised-button color="white" (click)="back()">Cancel</button>
+      <button type="button" mat-raised-button color="primary" class="" (click)="submit()"
+        [disabled]="userForm?.invalid ||submitted">Save</button>
+    </div>
+  </form>
+</div>

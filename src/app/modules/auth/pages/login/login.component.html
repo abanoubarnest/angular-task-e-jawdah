@@ -1,0 +1,51 @@
+<div class="login-container">
+    <mat-card class="mat-elevation-z0">
+      <h2 class="text-2xl !-mt-12 mb-12 text-center semibold text-gray-600">{{ 'Welcome'}}</h2>
+  
+      <form novalidate #loginForm="ngForm" (submit)="onSubmit()">
+        <!-- Email -->
+        <mat-card-content>
+          <mat-form-field class="!block !mb-4">
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  #email="ngModel" [(ngModel)]="login.email" required />
+            <mat-error *ngIf="email?.errors?.['pattern']">
+                Invalid email format
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is Required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Password -->
+          <mat-form-field class="!block !mb-4">
+            <mat-label>Password</mat-label>
+            <input [type]="!passwordToggle ? 'password' : 'text'" matInput name="password"  
+            #password="ngModel" [(ngModel)]="login.password" required />
+            <button
+              type="button"
+              mat-icon-button
+              matSuffix
+              (click)="passwordToggle = !passwordToggle"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="passwordToggle"
+            >
+              <mat-icon>{{ passwordToggle ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is Required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Alert
+          <app-alert [show]="error ? true : false">{{ error }}</app-alert> -->
+        </mat-card-content>
+  
+        <!-- Actions -->
+        <div class="actions flex items-center justify-between">
+          <button [disabled]="loginForm?.invalid" type="submit" mat-raised-button color="primary" class="px-4">Login</button>
+          <a class="cursor-pointer" routerLink="/auth/sign-up"> Register user?</a>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

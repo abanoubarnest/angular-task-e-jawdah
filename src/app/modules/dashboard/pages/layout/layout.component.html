@@ -1,0 +1,90 @@
+<mat-sidenav-container
+  class="dashboard-container !bg-transparent"
+
+>
+  <!-- sidebar -->
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    opened
+    fixedInViewport="fixed"
+    class="shadow-xl !border-0"
+    [position]="nav_position"
+  >
+    <mat-list role="list" class="!flex !flex-col">
+      <!-- brand logo -->
+      <a
+        [routerLink]="'/'"
+        class="cursor-pointer bg-center bg-no-repeat !bg-contain mb-8 h-80"
+        [style.backgroundImage]="'url(assets/img/logo4.png)'"
+      >
+      </a>
+      <a>
+        <div
+          class="!flex justify-start items-center !rounded-none !mb-2 text-gray-600 px-7"
+        >
+          <mat-radio-group [(ngModel)]="systemLanguage" name="systemLanguage">
+            <mat-radio-button
+              class="pull-left"
+              *ngFor="let lang of languages"
+              [value]="lang.name"
+              color="primary"
+              class="mx-1px"
+              (change)="changeLang($event)"
+              >{{ lang.label }}</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+      </a>
+      <a>
+        <div
+          class="!flex justify-start items-center !rounded-none !mb-2 text-gray-600 px-7"
+          mat-button
+          role="listitem"
+        >
+          <img
+            class="rounded-full !h-7 !w-7 mx-1 object-cover"
+            [src]="'assets/img/avatar.png'"
+          />
+          <span class="text-gray-600">{{ user?.email }}</span>
+          <!-- <button mat-button [matMenuTriggerFor]="menu" >
+              <mat-icon class="nav-menu">more_vert</mat-icon>
+            </button> -->
+          <button (click)="logout()">
+            <mat-icon class="!mx-1">logout</mat-icon>
+          </button>
+        </div>
+
+        <!-- <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>Logout
+            </button>
+          </mat-menu> -->
+      </a>
+      <ng-container>
+        <a
+          routerLinkActive="active"
+          class="!flex justify-start items-center !rounded-none !mb-2 text-gray-600"
+          mat-button
+          *ngFor="let route of menuList"
+          role="listitem"
+          [routerLink]="[route.path]"
+        >
+          <mat-icon class="mx-3" mat-list-icon>{{ route.icon }}</mat-icon>
+
+          {{ route.title }}
+        </a>
+      </ng-container>
+    </mat-list>
+  </mat-sidenav>
+
+  <!-- dashboard content -->
+  <mat-sidenav-content   [dir]="nav_position == 'end' ? 'rtl' : 'ltr'">
+    <main class="flex flex-col">
+      <app-top-navbar (toggleSideBar)="sidenav.toggle()"></app-top-navbar>
+      <div class="container flex-grow p-4 mt-4">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

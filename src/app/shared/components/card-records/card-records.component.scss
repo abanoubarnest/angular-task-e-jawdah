@@ -1,0 +1,9 @@
+:host ::ng-deep{
+.card-wrapper{
+    .mat-card-header-text{
+      margin: 0 !important;
+      width: 100% !important;
+    }
+  }
+}
+

@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/main.scss';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.open-dialog{
+    .mat-dialog-title{
+        color: white;
+        padding: 15px;
+        background: #683ab7;
+    }
+    .mat-dialog-content {
+        display: block;
+        margin: 0;
+        padding: 0 13px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mat-dialog-actions {
+        padding: 8px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 52px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .mat-dialog-container{
+        padding: 0  !important;
+    }
+}
+
+
+
+@mixin langView()  {
+  [dir~="rtl"] {
+    .mat-drawer.mat-drawer-end {
+      right: 0!important;
+      left: auto !important;
+    }
+    .mat-drawer-content{
+      margin-right: 200px !important;
+      margin-left: 0px !important;
+   }
+  }
+  [dir~="ltr"] {
+    .mat-drawer.mat-drawer-end {
+      right: auto!important;
+      left: 0 !important;
+    }
+    .mat-drawer-content{
+      margin-left: 200px !important;
+      margin-right: 0px !important;
+   }
+  }
+}
+@include langView()

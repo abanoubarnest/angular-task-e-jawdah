@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "task-a7fb5": {
+      "hosting": {
+        "angular-firebase": [
+          "task-a7fb5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "task-a7fb5"
+  }
+}
